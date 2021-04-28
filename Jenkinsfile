@@ -4,7 +4,7 @@ pipeline {
    stages {
     stage('Compile') {
      steps {
-        sh(script: 'mvn compile')
+        //sh(script: 'mvn compile')
         echo 'Compile...'
      }
    }
