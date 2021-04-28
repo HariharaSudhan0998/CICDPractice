@@ -2,20 +2,44 @@ pipeline {
    agent any
 
    stages {
-      stage('Build') {
-        steps {
-          echo 'Building...'
-          echo "Running ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} on ${env.NODE_NAME} and JOB ${env.JOB_NAME}"
-        }
-   }
-   stage('Test') {
+    stage('Compile') {
      steps {
-        echo 'Testing...'
+        echo 'Compile...'
      }
    }
-   stage('Deploy') {
+    stage('Unit Test') {
      steps {
-       echo 'Deploying...'
+        echo 'Unit Test...'
+     }
+   }
+    stage('Code Quality') {
+     steps {
+        echo 'Code Quality...'
+     }
+   }
+    stage('Artifact Push') {
+     steps {
+        echo 'Artifact Push...'
+     }
+   }
+    stage('Deploy') {
+     steps {
+        echo 'Deploy...'
+     }
+   }
+    stage('Smoke Test') {
+     steps {
+        echo 'Smoke Test...'
+     }
+   }
+    stage('Functional Test') {
+     steps {
+        echo 'Functional Test...'
+     }
+   }
+   stage('Email Notification') {
+     steps {
+        echo 'Email Notification...'
      }
    }
   }
