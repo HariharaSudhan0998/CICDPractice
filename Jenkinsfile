@@ -16,7 +16,7 @@ pipeline {
    }
     stage('Code Quality') {
      steps {
-        def mvnHome = tool name: 'Maven-Demo', type: 'maven'
+         mvnHome = tool name: 'Maven-Demo', type: 'maven'
 	 withSonarQubeEnv('SonarQube') {
 		     sh "${mvnHome}/bin/mvn sonar:sonar"
 		}
