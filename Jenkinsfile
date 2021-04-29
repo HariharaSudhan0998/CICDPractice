@@ -16,13 +16,10 @@ pipeline {
    }
     stage('Code Quality') {
         steps {
-                       script {
-                          defscannerHome = tool 'sonarpath';
-                          withSonarQubeEnv("sonar") {
-                          sh "${tool("sonarpath")}/bin/sonar-scanner"
-                                       }
-                               }
-                           }
+            withSonarQubeEnv('SonarQube') {
+		      sh "./gradlew sonarqube"
+		     }
+        }
         echo 'Code Quality...'
      
    }
