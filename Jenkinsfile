@@ -15,13 +15,16 @@ pipeline {
      }
    }
     stage('Code Quality') {
-     steps {
-         mvnHome = tool name: 'Maven-Demo', type: 'maven'
-	 withSonarQubeEnv('SonarQube') {
-		     sh "${mvnHome}/bin/mvn sonar:sonar"
-		}
+        steps {
+                       script {
+                          defscannerHome = tool 'sonarpath';
+                          withSonarQubeEnv("sonar") {
+                          sh "${tool("sonarpath")}/bin/sonar-scanner"
+                                       }
+                               }
+                           }
         echo 'Code Quality...'
-     }
+     
    }
     stage('Artifact Push') {
      steps {
