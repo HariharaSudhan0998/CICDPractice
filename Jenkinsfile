@@ -18,7 +18,7 @@ pipeline {
         steps {
             //withSonarQubeEnv('sonar_server') {
 		//      sh "./gradlew sonarqube"
-		     }
+		       // }
         
         echo 'Code Quality...'
 	}
