@@ -16,8 +16,9 @@ pipeline {
    }
     stage('Code Quality') {
      steps {
-        withSonarQubeEnv('SonarQube') {
-		     sh "./gradlew sonarqube"
+        def mvnHome = tool name: 'Maven-Demo', type: 'maven'
+	 withSonarQubeEnv('SonarQube') {
+		     sh "${mvnHome}/bin/mvn sonar:sonar"
 		}
         echo 'Code Quality...'
      }
