@@ -39,7 +39,7 @@ pipeline {
 		                            nexusVersion: 'nexus3', 
 		                            protocol: 'http', 
 		                            repository: 'Simpleapp-release', 
-		                            version: '1.0.0'
+		                            version: '0.0.14'
 
         echo 'Artifact Push...'
      }
