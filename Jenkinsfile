@@ -19,9 +19,9 @@ pipeline {
             withSonarQubeEnv('SonarQube') {
 		      sh "./gradlew sonarqube"
 		     }
-        }
+        
         echo 'Code Quality...'
-     
+	}
    }
     stage('Artifact Push') {
      steps {
