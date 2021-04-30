@@ -26,6 +26,10 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {
+	     mvn sonar:sonar \
+                   -Dsonar.projectKey=sonarqube-testing \
+                   -Dsonar.host.url=http://192.168.0.251:9000 \
+                   -Dsonar.login=64289b29b80c25f532e0ae7c28bdf790a8b654c1
             nexusArtifactUploader artifacts: [
                                     [
 					    artifactId: 'myweb', 
