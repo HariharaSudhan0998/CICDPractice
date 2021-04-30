@@ -23,7 +23,7 @@ pipeline {
         echo 'Code Quality...'
 	}
    }
-    stage('Artifact Push') {
+    /*stage('Artifact Push') {
      steps {
             nexusArtifactUploader artifacts: [
                                     [
@@ -43,7 +43,7 @@ pipeline {
 
         echo 'Artifact Push...'
      }
-   }
+   }/*
     stage('Deploy') {
      steps {
         echo 'Deploy...'
