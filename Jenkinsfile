@@ -16,16 +16,16 @@ pipeline {
    }
     stage('Code Quality') {
      steps {
-           // withSonarQubeEnv('sonar_server') {
-		    // sh "./gradlew sonarqube"
-		       // }
+            withSonarQubeEnv('sonar_server') {
+		     sh "./gradlew sonarqube"
+		        }
         
         echo 'Code Quality...'
 	}
    }
     stage('Artifact Push') {
      steps {
-            nexusArtifactUploader artifacts: [
+            /*nexusArtifactUploader artifacts: [
                                     [
 					    artifactId: 'myweb', 
 					    classifier: '', 
@@ -39,7 +39,7 @@ pipeline {
 		                            nexusVersion: 'nexus3', 
 		                            protocol: 'http', 
 		                            repository: 'Simpleapp-release', 
-		                            version: '0.0.14'
+		                            version: '0.0.14'*/
 
         echo 'Artifact Push...'
      }
