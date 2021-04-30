@@ -29,13 +29,14 @@ pipeline {
         echo 'Deploy...'
      }
       }
-	     stage("Smoke test") {    
+	     stage('Smoke test') {    
 		     steps {       
 			     sleep 60       
 			     sh "./smoke_test.sh"   
 		     
 	     
-        echo 'Smoke Test...}
+        echo 'Smoke Test...'
+		     }
    }
     stage('Functional Test') {
      steps {
