@@ -46,10 +46,7 @@
 		</repository>
   	</distributionManagement>
 	
-	<pluginGroups>
-        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-    </pluginGroups>
-    <profiles>
+    <activeProfiles>
         <profile>
             <id>sonar</id>
             <activation>
@@ -62,7 +59,7 @@
                 </sonar.host.url>
             </properties>
         </profile>
-     </profiles>
+     </activeProfiles>
 	
 <build>
     <plugins>
