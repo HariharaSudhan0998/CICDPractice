@@ -34,9 +34,12 @@ pipeline {
      }
    }
     stage('Smoke Test') {
-     steps {
+     steps {       
+			     sleep 60       
+			     sh "./smoke_test.sh"   
+		     
         echo 'Smoke Test...'
-     }
+		     }
    }
     stage('Functional Test') {
      steps {
