@@ -16,20 +16,10 @@ pipeline {
      }
    }
     stage('Code Quality') {
-     steps {
-	     withSonarQubeEnv('SonarQubeServer') { 
-              tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    sh """
-       ${sonarRunner}/bin/sonar-scanner \
-       -Dsonar.projectKey=sonarqube-testing \
-       -Dsonar.sources=.
-    """
-}
-
-	     
-            //withSonarQubeEnv('sonar_server') {
-		   //  sh "./gradlew sonarqube"
-		     //   }
+     steps {	    	    
+            withSonarQubeEnv('sonar_server') {
+		     sh "./ sonarqube"
+		        }
         
         echo 'Code Quality...'
 	}
