@@ -18,11 +18,9 @@ pipeline {
     stage('Code Quality') {
      steps {	    	    
             withSonarQubeEnv('sonar_server') {
-		     sh """
-                        ${scannerHome}/bin/sonar-scanner \
-                       -Dsonar.projectKey=sonarqube-testing \
-                       -Dsonar.sources=. \
-"""
+		     sh """ 
+                         mvn sonar:sonar
+                       """ 
 		        }
         
         echo 'Code Quality...'
