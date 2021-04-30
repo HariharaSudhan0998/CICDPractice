@@ -46,7 +46,7 @@
 		</repository>
   	</distributionManagement>
 	
-    <activeProfiles>
+    <profiles>
         <profile>
             <id>sonar</id>
             <activation>
@@ -59,7 +59,7 @@
                 </sonar.host.url>
             </properties>
         </profile>
-     </activeProfiles>
+     </profiles>
 	
 <build>
     <plugins>
