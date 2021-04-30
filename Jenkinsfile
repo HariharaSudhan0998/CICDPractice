@@ -51,6 +51,12 @@ pipeline {
    }
     stage('Smoke Test') {
      steps {
+	     stage("Smoke test") {    
+		     steps {       
+			     sleep 60       
+			     sh "./smoke_test.sh"   
+		     }
+	     }
         echo 'Smoke Test...'
      }
    }
