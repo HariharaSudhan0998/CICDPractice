@@ -18,7 +18,7 @@ pipeline {
      steps {
            // withSonarQubeEnv('sonar_server') {
 		    // sh "./gradlew sonarqube"
-		        }
+		       // }
         
         echo 'Code Quality...'
 	}
@@ -34,13 +34,9 @@ pipeline {
      }
    }
     stage('Smoke Test') {
-     steps {       
-			     sleep 60       
-			     sh "./smoke_test.sh"   
-		     
-	     
+     steps {
         echo 'Smoke Test...'
-		     }
+     }
    }
     stage('Functional Test') {
      steps {
