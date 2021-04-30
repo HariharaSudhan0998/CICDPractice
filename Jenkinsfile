@@ -16,8 +16,8 @@ pipeline {
    }
     stage('Code Quality') {
         steps {
-            withSonarQubeEnv('sonar_server') {
-		     sh "./gradlew sonarqube"
+           // withSonarQubeEnv('sonar_server') {
+		    // sh "./gradlew sonarqube"
 		        }
         
         echo 'Code Quality...'
@@ -28,17 +28,15 @@ pipeline {
      steps {
         echo 'Deploy...'
      }
-   }
-    stage('Smoke Test') {
-     steps {
+      }
 	     stage("Smoke test") {    
 		     steps {       
 			     sleep 60       
 			     sh "./smoke_test.sh"   
-		     }
+		     
 	     }
         echo 'Smoke Test...'
-     }
+     
    }
     stage('Functional Test') {
      steps {
