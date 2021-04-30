@@ -18,7 +18,7 @@ pipeline {
     stage('Code Quality') {
      steps {
 	     withSonarQubeEnv('SonarQubeServer') { 
-           sonarRunner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+             def  sonarRunner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     sh """
        ${sonarRunner}/bin/sonar-scanner \
        -Dsonar.projectKey=sonarqube-testing \
