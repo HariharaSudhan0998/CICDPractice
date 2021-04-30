@@ -17,6 +17,16 @@ pipeline {
    }
     stage('Code Quality') {
      steps {
+	     withSonarQubeEnv('SonarQubeServer') { 
+           sonarRunner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    sh """
+       ${sonarRunner}/bin/sonar-scanner \
+       -Dsonar.projectKey=sonarqube-testing \
+       -Dsonar.sources=.
+    """
+}
+
+	     
             //withSonarQubeEnv('sonar_server') {
 		   //  sh "./gradlew sonarqube"
 		     //   }
@@ -26,7 +36,7 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	    
-            nexusArtifactUploader artifacts: [
+           /* nexusArtifactUploader artifacts: [
                                     [
 					    artifactId: 'myweb', 
 					    classifier: '', 
@@ -40,7 +50,7 @@ pipeline {
 		                            nexusVersion: 'nexus3', 
 		                            protocol: 'http', 
 		                            repository: 'Simpleapp-release', 
-		                            version: '1.0.0'
+		                            version: '1.0.0'*/
 
         echo 'Artifact Push...'
      }
