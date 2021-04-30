@@ -30,7 +30,7 @@ pipeline {
                                     [
 					    artifactId: 'myweb', 
 					    classifier: '', 
-					    file: 'target/my-app-0.0.14.war', 
+					    file: 'target/my-app-1.0.0.war', 
 					    type: 'war'
 				       ]
 	                            ], 
@@ -40,7 +40,7 @@ pipeline {
 		                            nexusVersion: 'nexus3', 
 		                            protocol: 'http', 
 		                            repository: 'Simpleapp-release', 
-		                            version: '0.0.14'
+		                            version: '1.0.0'
 
         echo 'Artifact Push...'
      }
