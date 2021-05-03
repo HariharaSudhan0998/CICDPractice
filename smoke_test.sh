@@ -248,7 +248,7 @@ _smoke_print_report_failure() {
 }
 _smoke_print_report_success() {
     TEXT="$1"
-    echo -e "${greenbg}$TEXT${normal}"
+    echo -e "${greenbg}$TEXT${normal}"a
 }
 
 _smoke_print_success() {
