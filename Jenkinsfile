@@ -50,6 +50,7 @@ pipeline {
    }
     stage('Deploy') {
      steps {
+	   //  sh(script: 'mvn deploy')
         echo 'Deploy...'
      }
    }
