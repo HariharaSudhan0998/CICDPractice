@@ -10,14 +10,14 @@ pipeline {
    }
     stage('Unit Test') {
      steps {
-        //sh(script: 'mvn test')
-	//sh(script: 'mvn package')
+        sh(script: 'mvn test')
+	sh(script: 'mvn package')
         echo 'Unit Test...'
      }
    }
     stage('Code Quality') {
      steps {	    	    
-           /* withSonarQubeEnv('sonarqube') {
+            withSonarQubeEnv('sonarqube') {
 		     sh """ 
 		         mvn clean install
                          mvn sonar:sonar \
@@ -25,7 +25,7 @@ pipeline {
                             -Dsonar.host.url=http://ec2-13-233-120-227.ap-south-1.compute.amazonaws.com:9000 \
                             -Dsonar.login=e65c467df6a15882744b77ecf78f771e49b6c1af
                        """ 
-		        } */
+		        } 
         
         echo 'Code Quality...'
 	}
@@ -72,8 +72,8 @@ pipeline {
    }
    stage('Email Notification') {
      steps {
-	     mail bcc: '', body: '''Hi all,
-              The pipeline run successfully.''', cc: '', from: '', replyTo: '', subject: 'Jenkins pipeline', to: 'hariharasudhan9894@gmail.com'
+	     //mail bcc: '', body: '''Hi all,
+              //The pipeline run successfully.''', cc: '', from: '', replyTo: '', subject: 'Jenkins pipeline', to: 'hariharasudhan9894@gmail.com'
         echo 'Email Notification...'
      }
    }
