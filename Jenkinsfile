@@ -72,6 +72,8 @@ pipeline {
    }
    stage('Email Notification') {
      steps {
+	     mail bcc: '', body: '''Hi all,
+              The pipeline run successfully.''', cc: '', from: '', replyTo: '', subject: 'Jenkins pipeline', to: 'hariharasudhan9894@gmail.com'
         echo 'Email Notification...'
      }
    }
