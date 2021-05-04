@@ -17,7 +17,7 @@ pipeline {
    }
     stage('Code Quality') {
      steps {	    	    
-            withSonarQubeEnv('sonar_server') {
+            withSonarQubeEnv('sonarqube') {
 		     sh """ 
 		         mvn clean install
                          mvn sonar:sonar
