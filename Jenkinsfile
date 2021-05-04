@@ -23,7 +23,8 @@ pipeline {
                          mvn sonar:sonar \
                             -Dsonar.projectKey=sonarqube \
                             -Dsonar.host.url=http://ec2-13-233-120-227.ap-south-1.compute.amazonaws.com:9000 \
-                            -Dsonar.login=e65c467df6a15882744b77ecf78f771e49b6c1af
+                            -Dsonar.login=e65c467df6a15882744b77ecf78f771e49b6c1af \
+			    -Xmx1024m -Xms512m
                        """ 
 		        } 
         
