@@ -33,7 +33,7 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	      sh(script: 'mvn clean install deploy')
+	      /*sh(script: 'mvn clean install deploy')
 	     // sh(script: 'mvn clean install deploy -P release')
 	     nexusArtifactUploader artifacts: [
 		                      [ 
@@ -49,7 +49,7 @@ pipeline {
 		                               nexusVersion: 'nexus3', 
 		                               protocol: 'http', 
 		                               repository: 'Simpleapp-release', 
-		                               version: '1.0.0' 
+		                               version: '1.0.0' */
 	      
 
         echo 'Artifact Push...'
@@ -62,9 +62,8 @@ pipeline {
      }
    }
     stage('Smoke Test') {
-     steps {       
-			     // sleep 60       
-			    // sh "./smoke_test.sh"   
+     steps {       			         
+			     sh "./smoke_test.sh"   
 		     
         echo 'Smoke Test...'
 		     }
