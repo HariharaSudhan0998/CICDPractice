@@ -33,7 +33,7 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	      /*sh(script: 'mvn clean install deploy')
+	      sh(script: 'mvn  deploy')
 	     // sh(script: 'mvn clean install deploy -P release')
 	     nexusArtifactUploader artifacts: [
 		                      [ 
@@ -49,7 +49,7 @@ pipeline {
 		                               nexusVersion: 'nexus3', 
 		                               protocol: 'http', 
 		                               repository: 'Simpleapp-release', 
-		                               version: '1.0.0' */
+		                               version: '1.0.0' 
 	      
 
         echo 'Artifact Push...'
@@ -63,13 +63,21 @@ pipeline {
    }
     stage('Smoke Test') {
      steps {       			         
-			     sh "./smoke_test.sh"   
+			   //  sh "./smoke_test.sh"   
 		     
         echo 'Smoke Test...'
 		     }
    }
     stage('Functional Test') {
-     steps {
+     steps {	     
+				      checkout scm
+				
+				script{
+				      sh(/mvn clean  test /)
+				   }
+				
+				       step([$class : 'Publisher', reportFilenamePattern : '**/testng-results.xml'])
+			
         echo 'Functional Test...'
      }
    }
