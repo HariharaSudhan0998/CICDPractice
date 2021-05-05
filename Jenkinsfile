@@ -32,8 +32,9 @@ pipeline {
 	}
    }
     stage('Artifact Push') {
-     steps {	                	     
-	     /*nexusArtifactUploader artifacts: [
+     steps {	          
+	     sh(script: 'mvn clean install deploy -P release')
+	     nexusArtifactUploader artifacts: [
 		                      [ 
 					       artifactId: 'myweb', 
 					       classifier: '', 
@@ -47,8 +48,8 @@ pipeline {
 		                               nexusVersion: 'nexus3', 
 		                               protocol: 'http', 
 		                               repository: 'Simpleapp-release', 
-		                               version: '1.0.0' */
-	      sh(script: 'mvn clean install deploy -P release')
+		                               version: '1.0.0' 
+	      
 
         echo 'Artifact Push...'
      }
