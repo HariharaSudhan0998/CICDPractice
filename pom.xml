@@ -39,12 +39,7 @@
 		    <id>nexus</id>
 		    <url>http://ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/repository/Simpleapp-release/</url>
 		 </snapshotRepository>
-		
-		<repository>
-		    <id>nexus</id>
-		    <url>http://ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/repository/Simpleapp-release/</url>
-		</repository> 
-	
+					
 		<repository>
 		    <id>nexus-releases</id>
 	            <name>releases</name>
