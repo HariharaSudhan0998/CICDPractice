@@ -37,12 +37,12 @@
 	<distributionManagement>
 		 <snapshotRepository>
 		    <id>nexus</id>
-		    <url>http://192.168.0.251:8081/repository/Simpleapp-release/</url>
+		    <url>http://ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/repository/Simpleapp-release/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexus</id>
-		    <url>http://192.168.0.251:8081/repository/Simpleapp-release/</url>
+		    <url>http://ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/repository/Simpleapp-release/</url>
 		</repository>
   	</distributionManagement>
 	
