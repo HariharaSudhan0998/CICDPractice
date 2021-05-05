@@ -17,7 +17,7 @@ pipeline {
    }
     stage('Code Quality') {
      steps {	    	    
-            withSonarQubeEnv('sonarqube') {
+            /*withSonarQubeEnv('sonarqube') {
 		     sh """ 
 		         mvn clean install
                         mvn sonar:sonar \
@@ -26,28 +26,28 @@ pipeline {
                             -Dsonar.login=e65c467df6a15882744b77ecf78f771e49b6c1af \
 			    -Xmx1024m -Xms512m
                        """ 
-		        } 
+		        } */
         
         echo 'Code Quality...'
 	}
    }
     stage('Artifact Push') {
-     steps {	    
-           /* nexusArtifactUploader artifacts: [
-                                    [
-					    artifactId: 'myweb', 
-					    classifier: '', 
-					    file: 'target/my-app-1.0.0.war', 
-					    type: 'war'
-				       ]
-	                            ], 
-		                            credentialsId: 'e0f7d903-7b82-46f1-9b1e-c82b73a22ee4', 
-		                            groupId: 'in.javahome', 
-		                            nexusUrl: '192.168.0.251:8081', 
-		                            nexusVersion: 'nexus3', 
-		                            protocol: 'http', 
-		                            repository: 'Simpleapp-release', 
-		                            version: '1.0.0'*/
+     steps {	                	     
+	     nexusArtifactUploader artifacts: [
+		                      [ 
+					       artifactId: 'myweb', 
+					       classifier: '', 
+					       file: 'target/my-app-1.0.0.war', 
+					       type: 'war'
+				      ]
+	                           ], 
+		                               credentialsId: 'e0f7d903-7b82-46f1-9b1e-c82b73a22ee4', 
+		                               groupId: 'in.javahome', 
+		                               nexusUrl: 'ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/', 
+		                               nexusVersion: 'nexus3', 
+		                               protocol: 'http', 
+		                               repository: 'Simpleapp-release', 
+		                               version: '1.0.0'
 
         echo 'Artifact Push...'
      }
