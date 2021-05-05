@@ -33,7 +33,7 @@ pipeline {
    }
     stage('Artifact Push') {
      steps {	          
-	      sh(script: 'mvn  deploy')
+	      sh(script: 'mvn  -x deploy')
 	     // sh(script: 'mvn clean install deploy -P release')
 	   /*  nexusArtifactUploader artifacts: [
 		                      [ 
