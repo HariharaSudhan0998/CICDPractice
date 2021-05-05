@@ -34,7 +34,7 @@ pipeline {
     stage('Artifact Push') {
      steps {	          
 	      sh(script: 'mvn  -version')
-              sh(script: 'mvn  -x deploy')
+              sh(script: 'mvn   deploy')
 	     // sh(script: 'mvn clean install deploy -P release')
 	   /*  nexusArtifactUploader artifacts: [
 		                      [ 
