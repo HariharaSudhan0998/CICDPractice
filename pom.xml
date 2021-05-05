@@ -46,7 +46,7 @@
 		</repository> 
 	
 		<repository>
-		    id>nexus-releases</id>
+		    <id>nexus-releases</id>
 	            <name>releases</name>
 		    <url>http://ec2-65-2-73-94.ap-south-1.compute.amazonaws.com:8081/repository/Simpleapp-release/</url>
 		</repository>
